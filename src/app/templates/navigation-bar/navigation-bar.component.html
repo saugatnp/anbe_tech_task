@@ -1,7 +1,44 @@
 <div class="navigation-bar">
     <div class="grid p-1">
-        <div class="col-3 col-offset-1 ">ab</div>
-        <div class="col-4 flex justify-content-center">cd</div>
-        <div class="col-3 flex justify-content-end">ef</div>
+        <div class="col-3 col-offset-1 align-items-center"><i class="pi pi-phone"></i>&nbsp;+977-9876543210</div>
+        <div class="col-4 flex justify-content-center">Shop at a cheap price&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;View
+            Offers</div>
+        <div class="col-3 flex justify-content-end align-items-center"><i
+                class="pi pi-map-marker"></i>&nbsp;&nbsp;Kathmandu</div>
+    </div>
+    <div class="grid">
+        <div class="col-offset-1 col-10">
+            <div class="card">
+                <p-menubar [model]="items">
+                    <ng-template pTemplate="start">
+                        <img src="https://anbetechsolutions.com/assets/img/brand/favicon.png" height="40"
+                            class="mr-4" />
+                    </ng-template>
+                    <ng-template pTemplate="end">
+                        <div class="grid flex mt-1">
+                            <div class="col-4 col-offset-3 p-0">
+                                <span class="p-input-icon-right w-full">
+                                    <i class="pi pi-search"></i>
+                                    <input type="text" pInputText placeholder="Search Product"
+                                        class="w-full search-bar" />
+                                </span>
+                            </div>
+                            <div class="col-2 p-0 col-offset-1  p-menuitem-link">
+                                <div class="hover p-2">
+                                    <span class="p-menuitem-icon pi pi-fw pi-user"></span>
+                                    <span>&nbsp;&nbsp;Account</span>
+                                </div>
+                            </div>
+                            <div class="col-2 p-0   p-menuitem-link">
+                                <div class="hover p-2">
+                                    <span class="p-menuitem-icon pi pi-cart-plus"></span>
+                                    <span>&nbsp;&nbsp;Cart</span>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </p-menubar>
+            </div>
+        </div>
     </div>
 </div>

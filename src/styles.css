@@ -1,7 +1,9 @@
+@import "primeicons/primeicons.css";
+
 :root {
     --base-background-color: #fff;
-    --second-background-color: #f5f6f6;
-    --primary-color: #003e29;
+    --second-background-color: #e6e3e3;
+    --primary-first-color: #003e29;
     --primary-second-color: #467061;
     --primary-third-color: #030e12;
     --primary-fourth-color: #797986;
@@ -10,7 +12,8 @@
     --border-radius: 10px;
     --button-border-radius: 15px;
     --input-border-radius: 20px;
-    --text-font-size: 16px;
+    --heading-font-size: 20px;
+    --text-font-size: 14px;
     --sub-text-font-size: 12px;
 }
 
@@ -23,25 +26,84 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--base-background-color);
-    font-family: Arial,sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 .navigation-bar {
-    top:0 !important;
+    top: 0 !important;
     position: sticky;
-    background-color: var(--primary-color);
+    background-color: var(--primary-first-color);
     color: white;
+    font-size: var(--text-font-size);
+    z-index: 1000;
 }
 
 .content {
-    height: 100%;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
 }
 
+
+.inner-content{
+    position: relative;;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
 .footer-bar {
-    position: fixed;
-    bottom: 0;
     width: 100%;
-    background-color: var(--second-background-color);
     padding: 10px 0;
+}
+
+.heading {
+    font-size: var(--heading-font-size);
+    color: var(--primary-first-color);
+}
+
+.search-bar {
+    background-color: var(--second-background-color);
+    border-radius: var(--input-border-radius);
+    border: none;
+    padding: 10px 20px;
+    width: 100%;
+    font-size: var(--text-font-size);
+}
+
+.p-menubar-end {
+    align-items: center;
+    flex-grow: 1;
+    margin: 0 !important;
+}
+
+.hover:hover {
+    color: #495057;
+    background: #e9ecef;
+    border-radius: var(--border-radius);
+}
+
+.normal-text {
+    font-size: var(--text-font-size);
+    color: grey;
+}
+
+.list-text {
+    font-size: var(--text-font-size);
+    color: black;
+}
+
+ul.list-none {
+    padding: 0;
+}
+
+.primary-text {
+    color: var(--primary-first-color);
+}
+.crousel-image{
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    border-radius: var(--border-radius);
 }

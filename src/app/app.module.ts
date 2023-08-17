@@ -7,6 +7,10 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app-routing.module';
 import { NavigationBarComponent } from './templates/navigation-bar/navigation-bar.component';
 import { FooterComponent } from './templates/footer/footer.component';
+import { MenubarModule } from 'primeng/menubar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -16,7 +20,9 @@ import { FooterComponent } from './templates/footer/footer.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
+    MenubarModule
     // RouterModule.forRoot(routes),
   ],
   providers: [],
