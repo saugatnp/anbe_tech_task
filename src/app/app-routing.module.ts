@@ -4,12 +4,17 @@ import { HomeScreenComponent } from './contents/home-screen/home-screen.componen
 
 export const routes: Routes = [
   {
+    
     path: 'home', component: HomeScreenComponent
     // ,
     // loadChildren: () =>
     //   import('./contents/home-screen/home-screen.module').then(
     //     (m) => m.HomeScreenModule,
     //   ),
+  },
+  {
+    
+    path: '', component: HomeScreenComponent
   },
 ];
 
