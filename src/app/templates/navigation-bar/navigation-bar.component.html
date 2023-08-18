@@ -1,9 +1,11 @@
 <div class="navigation-bar">
     <div class="grid p-1">
-        <div class="col-3 col-offset-1 align-items-center"><i class="pi pi-phone"></i>&nbsp;+977-9876543210</div>
-        <div class="col-4 flex justify-content-center">Shop at a cheap price&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;View
+        <div class="lg:col-3 sm:col-12 col-12 lg:col-offset-1 flex align-items-center justify-content-center"><i
+                class="pi pi-phone"></i>&nbsp;+977-9876543210</div>
+        <div class="lg:col-3 sm:col-12 col-12 lg:col-offset-1 flex align-items-center justify-content-center">Shop at a cheap
+            price&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;View
             Offers</div>
-        <div class="col-3 flex justify-content-end align-items-center"><i
+        <div class="lg:col-3 sm:col-12 col-12 lg:col-offset-1 flex align-items-center justify-content-center"><i
                 class="pi pi-map-marker"></i>&nbsp;&nbsp;Kathmandu</div>
     </div>
     <div class="grid">
@@ -12,24 +14,24 @@
                 <p-menubar [model]="items">
                     <ng-template pTemplate="start">
                         <img src="https://anbetechsolutions.com/assets/img/brand/favicon.png" height="40"
-                            class="mr-4" />
+                            class="md:mr-4" />
                     </ng-template>
                     <ng-template pTemplate="end">
-                        <div class="grid flex mt-1">
-                            <div class="col-4 col-offset-3 p-0">
+                        <div class="grid flex mt-1 align-items-center">
+                            <div class="lg:col-4 md:col-6 sm:col-12 col-12 lg:col-offset-3 p-0">
                                 <span class="p-input-icon-right w-full">
                                     <i class="pi pi-search"></i>
                                     <input type="text" pInputText placeholder="Search Product"
                                         class="w-full search-bar" />
                                 </span>
                             </div>
-                            <div class="col-2 p-0 col-offset-1  p-menuitem-link">
+                            <div class="lg:col-2 md:col-3 sm:col-6 col-6 p-0 lg:col-offset-1  p-menuitem-link">
                                 <div class="hover p-2">
                                     <span class="p-menuitem-icon pi pi-fw pi-user"></span>
                                     <span>&nbsp;&nbsp;Account</span>
                                 </div>
                             </div>
-                            <div class="col-2 p-0   p-menuitem-link">
+                            <div class="lg:col-2 md:col-3 sm:col-6 col-6 p-0   p-menuitem-link">
                                 <div class="hover p-2">
                                     <span class="p-menuitem-icon pi pi-cart-plus"></span>
                                     <span>&nbsp;&nbsp;Cart</span>

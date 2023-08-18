@@ -1,6 +1,30 @@
-<div class="grid">
-    <div class="col-10 col-offset-1">
-        <img src="https://anbetechsolutions.com/assets/img/retail/retail.jpg" alt="" width="100%" height="auto" class="crousel-image">
-        
+<div class="home">
+    <div class="grid mt-3">
+        <div class="col-10 col-offset-1">
+            <img src="https://anbetechsolutions.com/assets/img/retail/retail.jpg" alt="" width="100%" height="auto"
+                class="crousel-image">
+
+        </div>
+    </div>
+    <div class="grid mt-5">
+        <div class="col-8 col-offset-2">
+            <h2>Shop By Category!</h2>
+        </div>
+        <div class="col-8 col-offset-2 scrollable-x flex ">
+            <button class="outlined-button" *ngFor="let cat of categories">
+                {{cat}}
+            </button>
+        </div>
+    </div>
+    <div class="grid mt-4">
+        <div class="lg:col-8 lg:col-offset-2 col-10 col-offset-1 scrollable-x flex ">
+            <div class="grid m-0 p-0">
+                <div class="lg:col-3 md:col-6 col-12 mb-6" *ngFor="let div of data">
+                    <product-card [id]="div.id" [thumbnail]="div.thumbnail" [title]="div.title" [price]="div.price"
+                        [brand]="div.brand" [rating]="div.rating" [stock]="div.stock"></product-card>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>

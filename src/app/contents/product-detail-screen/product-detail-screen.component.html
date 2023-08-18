@@ -1,0 +1,50 @@
+<div class="details">
+    <div class="grid mt-5">
+        <div class="col-8 col-offset-2">
+            <div class="grid">
+                <div class="col-6">
+                    <div class="grid">
+                        <div class="col-12 mb-6 flex justify-content-center">
+                            <img src="{{displayImage}}" alt="" class="product-detail-main-image">
+                        </div>
+                        <div class="col-3" *ngFor="let img of dataDetail.images ; let i = index;let first = first" [hidden]="first">
+                            <img *ngIf="!first" src="{{img}}" alt="" class="product-detail-thumb-image"
+                                (click)="changeDisplayImage(i)">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-offset-1">
+                    <div class="grid">
+                        <div class="col-12">
+                            <h2 class="product-detail-name mb-0">{{dataDetail.title}}</h2>
+                        </div>
+                        <div class="col-12 mb-4">
+                            <label for="" class="normal-text">{{dataDetail.brand}}</label>
+                        </div>
+                        <div class="col-12">
+                            <label for="" class="normal-text">{{dataDetail.description}}</label>
+                        </div>
+                        <div class="col-12">
+                            <p-rating [(ngModel)]="dataDetail.rating" [cancel]="false"></p-rating>
+
+                        </div>
+                        <div class="col-12 pb-6" style="border-bottom: 1px solid grey;">
+                            <label for="" class="sub-text">{{dataDetail.stock}} in stock</label>
+
+                        </div>
+                        <div class="col-12 pb-4 flex align-items-center" style="border-bottom: 1px solid grey;">
+                            <h4 class="m-2 original-price">$ 100</h4>
+                            <h1 class="m-2">${{dataDetail.price}}</h1>
+                        </div>
+                        <div class="col-12 flex justify-content-center mt-4">
+                            <button class="outlined-button outlined-button-dark flex align-items-center">
+                                <b>Add to Cart&nbsp;&nbsp;&nbsp;<i class="pi pi-cart-plus"></i></b>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

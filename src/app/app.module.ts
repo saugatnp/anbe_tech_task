@@ -9,6 +9,7 @@ import { NavigationBarComponent } from './templates/navigation-bar/navigation-ba
 import { FooterComponent } from './templates/footer/footer.component';
 import { MenubarModule } from 'primeng/menubar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -16,10 +17,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     NavigationBarComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MenubarModule
