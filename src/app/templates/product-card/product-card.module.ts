@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   declarations: [
     ProductCardComponent
@@ -17,7 +18,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     ButtonModule,
-    RatingModule
+    RatingModule,
   ],
   exports: [
     ProductCardComponent

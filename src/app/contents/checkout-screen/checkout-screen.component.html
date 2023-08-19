@@ -1,0 +1,138 @@
+<div class="checkout">
+    <div class="grid mt-5">
+        <div class="col-8 col-offset-2 border-bottom-1">
+            <div class="grid border-bottom-1 mb-4 desktop">
+                <div class="col-7">
+                    <label for="" class=""><b>Item Name</b></label>
+                </div>
+                <div class="col-1">
+                    <label for=""><b>Price</b></label>
+                </div>
+                <div class="col-1">
+                    <label for=""><b>Quantity</b></label>
+                </div>
+                <div class="col-1">
+                    <label for=""><b>Sub Total</b></label>
+                </div>
+                <div class="col-1">
+                    <label for=""><b>Discount %</b></label>
+                </div>
+                <div class="col-1">
+                    <label for=""><b>Total</b></label>
+                </div>
+            </div>
+            <div class="grid lg:mb-4 mb-8" *ngFor="let prod of productsList">
+                <div class="lg:col-7 col-6 mobile">
+                    <label for="">Name:</label>
+                </div>
+                <div class="lg:col-7 col-6">
+                    <label for="">{{prod.title}}</label>
+                </div>
+                <div class="lg:col-7 col-6 mobile">
+                    <label for="">Price:</label>
+                </div>
+                <div class="lg:col-1 col-6">
+                    <label for="">{{prod.price}}</label>
+                </div>
+                <div class="lg:col-7 col-6 mobile">
+                    <label for="">Quantity:</label>
+                </div>
+                <div class="lg:col-1 col-6">
+                    <label for="">{{prod.quantity}}</label>
+                </div>
+                <div class="lg:col-7 col-6 mobile">
+                    <label for="">Sub Total:</label>
+                </div>
+                <div class="lg:col-1 col-6">
+                    <label for="">{{prod.price * prod.quantity}}</label>
+                </div>
+                <div class="lg:col-7 col-6 mobile">
+                    <label for="">Discount %:</label>
+                </div>
+                <div class="lg:col-1 col-6">
+                    <label for="">{{prod.discountPercentage}}</label>
+                </div>
+                <div class="lg:col-7 col-6 mobile">
+                    <label for="">Total:</label>
+                </div>
+                <div class="lg:col-1 col-6">
+                    <label for="">{{prod.total}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="lg:col-8 lg:col-offset-2  col-12 border-bottom-1">
+            <div class="grid flex lg:justify-content-end">
+                <div class="lg:col-4 lg:col-offset-0 col-10 col-offset-1 ">
+                    <div class="grid">
+                        <div class="col-6">
+                            <label for=""><b>Total</b></label>
+                        </div>
+                        <div class="col-6">
+                            <label for="">${{total}}</label>
+                        </div>
+                        <div class="col-6">
+                            <label for=""><b>Tax</b></label>
+                        </div>
+                        <div class="col-6">
+                            <label for="">13%</label>
+                        </div>
+                        <div class="col-6">
+                            <label for=""><b>Grand Total</b></label>
+                        </div>
+                        <div class="col-6">
+                            <label for="">${{grandTotal}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div class="lg:col-8 lg:col-offset-2 col-12 mt-4">
+            <form #form="ngForm" (ngSubmit)="submitPayment(form)">
+                <div class="grid">
+                    <div class="lg:col-6 lg:col-offset-3 col-10 col-offset-1">
+                        <div class="grid">
+
+                            <div class="col-12 flex justify-content-center">
+                                <label for="" class="heading"><b>Enter Your Details</b></label>
+                            </div>
+                            <div class="col-12 flex justify-content-center">
+                                <img src="https://logowik.com/content/uploads/images/219_visa.jpg" alt=""
+                                    class="visa-card">
+                            </div>
+                            <div class="col-12 flex justify-content-center">
+                                <input pInputText pKeyFilter="int" placeholder="Name" class="w-full" name="name"
+                                    [(ngModel)]="name" required />
+                            </div>
+                            <div class="col-12 flex justify-content-center">
+                                <input type="text" pInputText pKeyFilter="int" placeholder="Email" class="w-full" name="email"
+                                    [(ngModel)]="email" required />
+                            </div>
+                            <div class="col-12 flex justify-content-center">
+                                <input pInputText pKeyFilter="int" placeholder="Address" class="w-full" name="address"
+                                    [(ngModel)]="address" required />
+                            </div>
+                            <div class="col-12 flex justify-content-center">
+                                <input type="number" pInputText pKeyFilter="int" placeholder="Card Number" class="w-full"
+                                    name="cardNumber" [(ngModel)]="cardNumber" required />
+                            </div>
+                            <div class="col-12 flex justify-content-center">
+                                <div class="p-inputgroup">
+                                    <input type="month" pInputText pKeyFilter="int" placeholder="Expiry" max="12/31"
+                                        name="expiryDate" [(ngModel)]="expiryDate" required />
+                                    <input type="number" pInputText placeholder="CVV" name="cvv" [(ngModel)]="cvv" max="999"
+                                        required />
+                                </div>
+                            </div>
+                            <div class="col-12 flex justify-content-center mt-4">
+                                <button class="outlined-button outlined-button-dark flex align-items-center" type="submit">
+                                    <b>Checkout</b>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

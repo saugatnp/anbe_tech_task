@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { CheckoutScreenComponent } from './checkout-screen.component';
+
+describe('CheckoutScreenComponent', () => {
+  let component: CheckoutScreenComponent;
+  let fixture: ComponentFixture<CheckoutScreenComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [CheckoutScreenComponent]
+    });
+    fixture = TestBed.createComponent(CheckoutScreenComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

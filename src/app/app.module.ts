@@ -10,6 +10,10 @@ import { FooterComponent } from './templates/footer/footer.component';
 import { MenubarModule } from 'primeng/menubar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ListboxModule } from 'primeng/listbox';
+
+
 
 
 
@@ -22,12 +26,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MenubarModule
+    MenubarModule,
+    ListboxModule,
     // RouterModule.forRoot(routes),
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

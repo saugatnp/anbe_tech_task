@@ -1,0 +1,89 @@
+<div class="cart">
+    <div class="grid mt-5">
+        <div class="lg:col-8 lg:col-offset-2 col-10 col-offset-1">
+            <div class="grid border-bottom-1 mb-4 desktop">
+                <div class="lg:col-5 col-4">
+                    <label for="" class="title">Item</label>
+                </div>
+                <div class="col-1">
+                    <label for="" class="title">Price</label>
+                </div>
+                <div class="col-2">
+                    <label for="" class="title">Quantity</label>
+                </div>
+                <div class="col-1">
+                    <label for="" class="title">Sub Total</label>
+                </div>
+                <div class="col-1">
+                    <label for="" class="title">Discount %</label>
+                </div>
+                <div class="col-1">
+                    <label for="" class="title">Total</label>
+                </div>
+                <div class="col-1">
+                    <label for="" class="title">Delete</label>
+                </div>
+            </div>
+            <div class="grid border-bottom-1 pb-2 pt-2" *ngFor="let prod of productsList">
+                <div class="lg:col-2 col-4">
+                    <img src="{{prod.thumbnail}}" alt="" class="cart-img">
+                </div>
+                <div class="lg:col-3 col-8   flex align-items-center">
+                    <div class="grid">
+                        <div class="col-12">
+                            <label for="" class="heading"><b>{{prod.title}}</b></label>
+                        </div>
+                        <div class="col-12 sub-heading">{{prod.brand}}</div>
+                    </div>
+                </div>
+                <div class="col-6 mobile">
+                    <label for="">Price:</label>
+                </div>
+                <div class="lg:col-1 col-6 flex align-items-center">
+                    <label for="">${{prod.price}}</label>
+                </div>
+                <div class="col-6 mobile">
+                    <label for="">Quantity:</label>
+                </div>
+                <div class="lg:col-2 col-6 flex align-items-center">
+                    <div class="p-inputgroup">
+                        <p-button icon="pi pi-plus" styleClass="p-button-secondary" (click)="addQuantity(prod)"></p-button>
+                        <input type="text" pInputText placeholder="Quantity" [(ngModel)]="prod.quantity"/>
+                        <p-button icon="pi pi-minus" styleClass="p-button-secondary" (click)="reduceQuantity(prod)"></p-button>
+                    </div>
+                </div>
+                <div class="col-6 mobile">
+                    <label for="">Sub Total:</label>
+                </div>
+                <div class="lg:col-1 col-6 flex align-items-center">
+                    <label for="">${{prod.price * prod.quantity}}</label>
+                </div>
+                <div class="col-6 mobile">
+                    <label for="">Discount %:</label>
+                </div>
+                <div class="lg:col-1 col-6 flex align-items-center">
+                    <label for="">{{prod.discountPercentage}}</label>
+                </div>
+                <div class="col-6 mobile">
+                    <label for="">Total:</label>
+                </div>
+                <div class="lg:col-1 col-6 flex align-items-center">
+                    <label for="">${{prod.total}}</label>
+                </div>
+                <div class="col-6 mobile">
+                    <label for="">Delete:</label>
+                </div>
+                <div class="lg:col-1 col-6 flex align-items-center">
+                    <label for="" class="pi pi-trash text-red-500" (click)="removeFromCart(prod.id)"></label>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="col-12 flex justify-content-center mt-4">
+                    <button class="outlined-button outlined-button-dark flex align-items-center" [routerLink]="'/checkout'">
+                        <b>Proceed to Checkout</b>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

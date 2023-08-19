@@ -12,27 +12,25 @@
         <div class="col-offset-1 col-10">
             <div class="card">
                 <p-menubar [model]="items">
-                    <ng-template pTemplate="start">
-                        <img src="https://anbetechsolutions.com/assets/img/brand/favicon.png" height="40"
-                            class="md:mr-4" />
+                    <ng-template pTemplate="start" >
+                        <img src="https://anbetechsolutions.com/assets/img/brand/favicon.png" height="40"  [routerLink]="'/home'"
+                            class="md:mr-4 mr-2" />
                     </ng-template>
                     <ng-template pTemplate="end">
-                        <div class="grid flex mt-1 align-items-center">
-                            <div class="lg:col-4 md:col-6 sm:col-12 col-12 lg:col-offset-3 p-0">
+                        <div class="grid flex mt-1 align-items-center lg:p-0 p-2">
+                            <div class="lg:col-4 md:col-6 sm:col-12 col-12 lg:col-offset-3 p-0" style="position: relative;">
                                 <span class="p-input-icon-right w-full">
                                     <i class="pi pi-search"></i>
-                                    <input type="text" pInputText placeholder="Search Product"
-                                        class="w-full search-bar" />
+                                    <input type="text" pInputText placeholder="Search Product" name="search" [(ngModel)]="search" (ngModelChange)="filterData()"
+                                        class="w-full search-bar" autocomplete="off" />
                                 </span>
-                            </div>
-                            <div class="lg:col-2 md:col-3 sm:col-6 col-6 p-0 lg:col-offset-1  p-menuitem-link">
-                                <div class="hover p-2">
-                                    <span class="p-menuitem-icon pi pi-fw pi-user"></span>
-                                    <span>&nbsp;&nbsp;Account</span>
+                                <div style="position: absolute;" *ngIf="products.length > 0">
+                                    <p-listbox [options]="products" [(ngModel)]="selectedProduct" (onChange)="showDetails()" (onClick)="showDetails()" [listStyle]="{ 'max-height': '450px' }" [filter]="false" optionLabel="title" [style]="{'width':'15rem'}" ></p-listbox>
+
                                 </div>
                             </div>
-                            <div class="lg:col-2 md:col-3 sm:col-6 col-6 p-0   p-menuitem-link">
-                                <div class="hover p-2">
+                            <div class="lg:col-2 md:col-3 sm:col-6 col-12 p-0 flex justify-content-center  p-menuitem-link" [routerLink]="'/cart'">
+                                <div class="hover p-2" >
                                     <span class="p-menuitem-icon pi pi-cart-plus"></span>
                                     <span>&nbsp;&nbsp;Cart</span>
                                 </div>

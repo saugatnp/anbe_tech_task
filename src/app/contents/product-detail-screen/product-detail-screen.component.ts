@@ -13,9 +13,8 @@ export class ProductDetailScreenComponent implements OnInit {
 
 
   rating :number = 0;
-  data: Array<HomeModel> = new Array<HomeModel>();
+  data: HomeModel = new HomeModel();
   id : string = '';
-  dataDetail : HomeModel = new HomeModel();
   displayImage : string = '';
 
 
@@ -36,12 +35,11 @@ export class ProductDetailScreenComponent implements OnInit {
 
   
   getProductList() {
-    this._homeService.getProductList().subscribe({
+    this._homeService.getProductDetailById(this.id).subscribe({
       next: (res) => {
-        this.data = res.products;
+        this.data = res;
       },
       complete: () => {
-        console.log(this.data);
         this.roundoffRating();
       }
     });
@@ -49,27 +47,26 @@ export class ProductDetailScreenComponent implements OnInit {
 
 
   roundoffRating() {
-    this.data.map((item) => {
-      var decimalPart = item.rating - Math.floor(item.rating);
+      this.displayImage = this.data.images[0];
+      var decimalPart = this.data.rating - Math.floor(this.data.rating);
       if (decimalPart >= 0.6) {
-        return item.rating =  Math.ceil(item.rating);
+        return this.data.rating =  Math.ceil(this.data.rating);
       } else {
-        return item.rating =  Math.floor(item.rating);
+        return this.data.rating =  Math.floor(this.data.rating);
       }
-    });
-    this.filterProductById();
   }
 
-  filterProductById() {
-    this.dataDetail = this.data.find(item =>  item.id.toString() == this.id)!;
-    this.displayImage = this.dataDetail.images[0];
-  }
+
 
   changeDisplayImage(index: number){
-    var image = this.dataDetail.images[0];
-    this.displayImage = this.dataDetail.images[index];
-    this.dataDetail.images[index] = image;
-    this.dataDetail.images[0] = this.displayImage;
+    var image = this.data.images[0];
+    this.displayImage = this.data.images[index];
+    this.data.images[index] = image;
+    this.data.images[0] = this.displayImage;
+  }
+
+  addToCart(dataDetail : any){
+    this._homeService.addCartToLocalStorage(dataDetail);
   }
 
 }

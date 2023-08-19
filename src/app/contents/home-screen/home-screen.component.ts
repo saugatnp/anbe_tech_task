@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
 import { HomeModel } from './home.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home-screen',
@@ -11,15 +12,18 @@ export class HomeScreenComponent implements OnInit {
 
   data: Array<HomeModel> = new Array<HomeModel>();
   categories: Array<string> = new Array<string>();
+  selectedCategory: string = '';
 
   constructor(
-    private _homeService: HomeService
+    private _homeService: HomeService,
   ) {
+    
 
   }
 
   ngOnInit(): void {
     this.getProductList();
+    this.getCategories();
   }
 
 
@@ -30,7 +34,17 @@ export class HomeScreenComponent implements OnInit {
       },
       complete: () => {
         this.roundoffRating();
-        this.getCategories();
+      }
+    });
+  }
+
+  getProductListByCategory() {
+    this._homeService.getProductListByCategory(this.selectedCategory).subscribe({
+      next: (res) => {
+        this.data = res.products;
+      },
+      complete: () => {
+        this.roundoffRating();
       }
     });
   }
@@ -47,12 +61,18 @@ export class HomeScreenComponent implements OnInit {
   }
 
   getCategories() {
-    let categories = this.data.map((item) => {
-      return item.category.toUpperCase();
-    });
-    categories = categories.filter((item, index) => {
-      return categories.indexOf(item) === index;
-    });
-    this.categories = categories;
-  }
+    this._homeService.getCategoryList().subscribe({
+       next: (res) => {
+         this.categories = res;
+       }
+     });
+   }
+
+   displayByCategory(category: string) {
+      this.selectedCategory = category;
+      this.getProductListByCategory();
+    }
+
+   
+  
 }
