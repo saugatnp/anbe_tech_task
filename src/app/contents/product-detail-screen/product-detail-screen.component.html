@@ -2,6 +2,7 @@
     <div class="grid mt-5">
         <div class="lg:col-8 lg:col-offset-2 col-10 col-offset-1">
             <div class="grid">
+                <!-- product images -->
                 <div class="lg:col-6 col-12">
                     <div class="grid">
                         <div class="lg:col-12 col-10 mb-6 flex justify-content-center">
@@ -14,6 +15,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- product details  -->
                 <div class="lg:col-4 col-12 lg:col-offset-1">
                     <div class="grid">
                         <div class="col-12">
@@ -37,6 +39,7 @@
                             <h4 class="m-2 original-price">$ 100</h4>
                             <h1 class="m-2">${{data.price}}</h1>
                         </div>
+                        <!-- add to cart button -->
                         <div class="col-12 flex justify-content-center mt-4">
                             <button class="outlined-button outlined-button-dark flex align-items-center" (click)="addToCart(data)">
                                 <b>Add to Cart&nbsp;&nbsp;&nbsp;<i class="pi pi-cart-plus"></i></b>

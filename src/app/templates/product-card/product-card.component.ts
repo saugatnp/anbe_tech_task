@@ -10,6 +10,8 @@ import { HomeService } from 'src/app/services/home.service';
 })
 export class ProductCardComponent implements OnInit{
 
+
+  //input from home page about product
   @Input() id: number = 0;
   @Input() thumbnail: string = "";
   @Input() description: string = "";
@@ -30,13 +32,15 @@ export class ProductCardComponent implements OnInit{
   ngOnInit(): void {
   }
 
+
+  // navigate to product detail page using the product's id
   navigateToDetails(id : number){
     this.router.navigate(['/details', id]);
-    // console.log(this.id);
   }
 
+
+  //add item to cart
   addToCart(event : Event){
-// console.log("nayoe");
     event.stopPropagation();
     this._homeService.addCartToLocalStorage({
       "id": this.id,

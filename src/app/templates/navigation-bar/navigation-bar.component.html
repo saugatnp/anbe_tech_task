@@ -1,4 +1,5 @@
 <div class="navigation-bar">
+    <!-- topbar -->
     <div class="grid p-1">
         <div class="lg:col-3 sm:col-12 col-12 lg:col-offset-1 flex align-items-center justify-content-center"><i
                 class="pi pi-phone"></i>&nbsp;+977-9876543210</div>
@@ -8,6 +9,7 @@
         <div class="lg:col-3 sm:col-12 col-12 lg:col-offset-1 flex align-items-center justify-content-center"><i
                 class="pi pi-map-marker"></i>&nbsp;&nbsp;Kathmandu</div>
     </div>
+    <!-- menu bar -->
     <div class="grid">
         <div class="col-offset-1 col-10">
             <div class="card">
@@ -19,16 +21,18 @@
                     <ng-template pTemplate="end">
                         <div class="grid flex mt-1 align-items-center lg:p-0 p-2">
                             <div class="lg:col-4 md:col-6 sm:col-12 col-12 lg:col-offset-3 p-0" style="position: relative;">
+                                <!-- search field -->
                                 <span class="p-input-icon-right w-full">
                                     <i class="pi pi-search"></i>
                                     <input type="text" pInputText placeholder="Search Product" name="search" [(ngModel)]="search" (ngModelChange)="filterData()"
                                         class="w-full search-bar" autocomplete="off" />
                                 </span>
+                                <!-- search list dropdown -->
                                 <div style="position: absolute;" *ngIf="products.length > 0">
                                     <p-listbox [options]="products" [(ngModel)]="selectedProduct" (onChange)="showDetails()" (onClick)="showDetails()" [listStyle]="{ 'max-height': '450px' }" [filter]="false" optionLabel="title" [style]="{'width':'15rem'}" ></p-listbox>
-
                                 </div>
                             </div>
+                            <!-- cart menu -->
                             <div class="lg:col-2 md:col-3 sm:col-6 col-12 p-0 flex justify-content-center  p-menuitem-link" [routerLink]="'/cart'">
                                 <div class="hover p-2" >
                                     <span class="p-menuitem-icon pi pi-cart-plus"></span>

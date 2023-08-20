@@ -17,7 +17,7 @@ export class HomeScreenComponent implements OnInit {
   constructor(
     private _homeService: HomeService,
   ) {
-    
+
 
   }
 
@@ -27,6 +27,8 @@ export class HomeScreenComponent implements OnInit {
   }
 
 
+
+  // get product list from api
   getProductList() {
     this._homeService.getProductList().subscribe({
       next: (res) => {
@@ -38,6 +40,8 @@ export class HomeScreenComponent implements OnInit {
     });
   }
 
+
+  // get product list by selected category from api
   getProductListByCategory() {
     this._homeService.getProductListByCategory(this.selectedCategory).subscribe({
       next: (res) => {
@@ -49,30 +53,36 @@ export class HomeScreenComponent implements OnInit {
     });
   }
 
+
+  // round off the rating to ceiling and floor value
   roundoffRating() {
     this.data.map((item) => {
       var decimalPart = item.rating - Math.floor(item.rating);
       if (decimalPart >= 0.6) {
-        return item.rating =  Math.ceil(item.rating);
+        return item.rating = Math.ceil(item.rating);
       } else {
-        return item.rating =  Math.floor(item.rating);
+        return item.rating = Math.floor(item.rating);
       }
     });
   }
 
+
+  // get the category list
   getCategories() {
     this._homeService.getCategoryList().subscribe({
-       next: (res) => {
-         this.categories = res;
-       }
-     });
-   }
+      next: (res) => {
+        this.categories = res;
+      }
+    });
+  }
 
-   displayByCategory(category: string) {
-      this.selectedCategory = category;
-      this.getProductListByCategory();
-    }
 
-   
-  
+  //  get called when user clicks on a category , it changes the currently selected category and calls the getProductListByCategory() method
+  displayByCategory(category: string) {
+    this.selectedCategory = category;
+    this.getProductListByCategory();
+  }
+
+
+
 }

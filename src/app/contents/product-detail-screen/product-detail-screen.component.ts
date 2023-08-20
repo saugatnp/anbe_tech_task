@@ -24,6 +24,7 @@ export class ProductDetailScreenComponent implements OnInit {
 
   ) {
 
+    //get the product's id from route to get the product detail
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id')!;
       this.getProductList();
@@ -34,6 +35,8 @@ export class ProductDetailScreenComponent implements OnInit {
   }
 
   
+
+  //get product detail by id from api
   getProductList() {
     this._homeService.getProductDetailById(this.id).subscribe({
       next: (res) => {
@@ -46,6 +49,7 @@ export class ProductDetailScreenComponent implements OnInit {
   }
 
 
+  // round off the rating to ceiling and floor value
   roundoffRating() {
       this.displayImage = this.data.images[0];
       var decimalPart = this.data.rating - Math.floor(this.data.rating);
@@ -58,6 +62,7 @@ export class ProductDetailScreenComponent implements OnInit {
 
 
 
+  // change the display image of the product
   changeDisplayImage(index: number){
     var image = this.data.images[0];
     this.displayImage = this.data.images[index];
@@ -65,6 +70,8 @@ export class ProductDetailScreenComponent implements OnInit {
     this.data.images[0] = this.displayImage;
   }
 
+
+  // add product to cart
   addToCart(dataDetail : any){
     this._homeService.addCartToLocalStorage(dataDetail);
   }

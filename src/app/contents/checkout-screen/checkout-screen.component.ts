@@ -33,11 +33,17 @@ export class CheckoutScreenComponent implements OnInit {
     this.getCartList();
   }
 
+
+
+  // get cart list from the local storage
   getCartList() {
     this.productsList = this._homeService.getProductFromLocalStorage();
     this.getTotal();
   }
 
+
+
+  // calculate total price of the products in cart
   getTotal() {
     this.productsList.map((item) => {
       this.total += item.total;
@@ -46,6 +52,8 @@ export class CheckoutScreenComponent implements OnInit {
 
   }
 
+
+  // check for the form validation and submit the payment
   submitPayment(form: NgForm) {
     if (form.valid) {
       this._homeService.clearCart();
